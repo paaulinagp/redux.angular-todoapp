@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { TodoFooterComponent } from './components/todo-footer/todo-footer.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
@@ -17,7 +20,8 @@ import { HomeComponent } from './pages/home/home.component';
     HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomeComponent
