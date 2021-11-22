@@ -13,10 +13,15 @@ export class TodoFooterComponent implements OnInit {
   filterSelected: actions.Filters = 'all';
   filters: actions.Filters[] = ['all', 'completed', 'pending'];
 
+  pendings: number = 0;
+
   constructor(private _store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this._store.select('filter').subscribe(filter => this.filterSelected = filter)
+    this._store.subscribe(({todos, filter}) => {
+      this.filterSelected = filter;
+      this.pendings = todos.filter(todo => !todo.status).length;
+    });
   }
 
   changeFilter(filter: actions.Filters ){
