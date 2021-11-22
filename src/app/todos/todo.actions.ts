@@ -5,12 +5,22 @@ export const create = createAction(
   props<{content: string}>()
 );
 
+export const update = createAction(
+  '[TODO] Update Todo',
+  props<{ id: number, content: string }>()
+);
+
+export const eliminate = createAction(
+  '[TODO] Delete Todo',
+  props<{id: number}>()
+);
+
 export const toggle = createAction(
   '[TODO] Toggle Todo',
   props<{id: number}>()
 );
 
-export const update = createAction(
-  '[TODO] Update Todo',
-  props<{ id: number, content: string }>()
+export const toggleAll = createAction(
+  '[TODO] ToggleAll Todo',
+  props<{status: boolean}>()
 );
