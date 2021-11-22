@@ -15,6 +15,8 @@ export const eliminate = createAction(
   props<{id: number}>()
 );
 
+export const cleanCompleted = createAction('[TODO] Clean compleated Todo');
+
 export const toggle = createAction(
   '[TODO] Toggle Todo',
   props<{id: number}>()

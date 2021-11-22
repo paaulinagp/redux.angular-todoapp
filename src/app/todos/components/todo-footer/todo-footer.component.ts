@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as actions from '../../../filters/filter.actions';
+import * as actionsFilters from '../../../filters/filter.actions';
+import * as actionsTodos from '../../todo.actions';
 import { AppState } from '../../../app.reducer';
 
 @Component({
@@ -10,8 +11,9 @@ import { AppState } from '../../../app.reducer';
 })
 export class TodoFooterComponent implements OnInit {
 
-  filterSelected: actions.Filters = 'all';
-  filters: actions.Filters[] = ['all', 'completed', 'pending'];
+  filterSelected: actionsFilters.Filters = 'all';
+
+  filters: actionsFilters.Filters[] = ['all', 'completed', 'pending'];
 
   pendings: number = 0;
 
@@ -24,8 +26,12 @@ export class TodoFooterComponent implements OnInit {
     });
   }
 
-  changeFilter(filter: actions.Filters ){
-    this._store.dispatch(actions.setFilter({filter}));
+  changeFilter(filter: actionsFilters.Filters ){
+    this._store.dispatch(actionsFilters.setFilter({filter}));
+  }
+
+  cleanCompleted(){
+    this._store.dispatch(actionsTodos.cleanCompleted());
   }
 
 }
